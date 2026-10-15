@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gandiv Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;600&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090A1C;--bg2:#10122B;--ink:#F3EEE4;--mute:#D2D0E6;--saf:#FF9933;--gold:#E9B44C;--grn:#2BB04A;--line:rgba(233,180,76,.22);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#090A1C;--bg2:#10122B;--ink:#F3EEE4;--mute:#D2D0E6}}
+:root:not([data-theme="light"]){--bg:#090A1C}
+:root[data-theme="dark"]{--bg:#090A1C}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font:300 17px/1.65 'Manrope',system-ui,sans-serif;overflow-x:hidden}
+#net{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.8}
+.glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(255,153,51,.16),transparent 65%);transform:translate(-50%,-50%);left:70%;top:30%}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+.logo{display:flex;align-items:center;gap:12px;font:600 22px 'Cormorant Garamond',serif;letter-spacing:.14em;text-decoration:none;color:var(--ink)}
+.logo svg{width:30px;height:30px}
+.btn{display:inline-block;padding:12px 26px;border:1px solid var(--saf);color:var(--saf);text-decoration:none;font-weight:600;font-size:15px;border-radius:2px;position:relative;overflow:hidden;transition:color .3s,background .3s}
+.btn.solid{background:var(--saf);color:#1a0d00}
+.btn:hover{background:var(--saf);color:#1a0d00;box-shadow:0 0 34px rgba(255,153,51,.45)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:calc(100vh - 90px);gap:20px}
+.hero h1{font:600 clamp(46px,7vw,92px)/.98 'Cormorant Garamond',serif;letter-spacing:-.01em;margin-bottom:26px}
+.hero h1 span{display:block;opacity:0;transform:translateY(30px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2){animation-delay:.25s;color:var(--gold)}
+.hero p{max-width:470px;color:var(--mute);margin-bottom:34px;opacity:0;animation:up .9s .6s forwards}
+.cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up .9s .85s forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.bowbox{position:relative}
+.bowbox svg{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 22px rgba(255,153,51,.35))}
+.deva{position:absolute;right:2%;bottom:2%;font:700 clamp(34px,5vw,64px)/1 'Noto Sans Devanagari',sans-serif;color:rgba(233,180,76,.3);pointer-events:none}
+.status{border-block:1px solid var(--line);background:linear-gradient(90deg,rgba(255,153,51,.08),transparent 70%);transition:background .2s}
+.status.flash{background:linear-gradient(90deg,rgba(255,153,51,.4),rgba(255,153,51,.05) 80%)}
+.status .wrap{display:flex;align-items:center;gap:22px;padding-block:22px;flex-wrap:wrap}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--grn);box-shadow:0 0 0 0 rgba(43,176,74,.7);animation:pulse 1.8s infinite;flex:none}
+@keyframes pulse{70%{box-shadow:0 0 0 16px rgba(43,176,74,0)}100%{box-shadow:0 0 0 0 rgba(43,176,74,0)}}
+.status b{font:600 21px 'Cormorant Garamond',serif;letter-spacing:.04em}
+.status small{color:var(--mute);font-size:14px;margin-left:auto}
+.flag{display:flex;width:38px;height:24px;flex-direction:column;border:1px solid var(--line)}
+.flag i{flex:1}.flag i:nth-child(1){background:var(--saf)}.flag i:nth-child(2){background:#f4f1ea}.flag i:nth-child(3){background:var(--grn)}
+section{padding:120px 0}
+h2{font:600 clamp(34px,4.6vw,58px)/1.05 'Cormorant Garamond',serif;margin-bottom:18px;max-width:720px}
+.lead{color:var(--mute);max-width:560px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+.card{background:var(--bg);padding:34px 28px;position:relative;transition:background .35s;transform-style:preserve-3d}
+.card:hover{background:var(--bg2)}
+.card::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--saf);transition:width .5s}
+.card:hover::after{width:100%}
+.card h3{font:600 26px 'Cormorant Garamond',serif;margin-bottom:10px;color:var(--gold)}
+.card p{font-size:15px;color:var(--mute)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+.myth{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.myth .quote{border-left:2px solid var(--saf);padding-left:26px;font:500 italic 26px/1.4 'Cormorant Garamond',serif;color:var(--ink);margin-top:30px}
+.ring{width:100%;max-width:420px;margin:auto;display:block}
+.ring .rot{transform-origin:200px 200px;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.term{background:#05060f;border:1px solid var(--line);font:400 14px/1.9 ui-monospace,Menlo,Consolas,monospace;padding:26px 28px;margin-top:50px;max-width:760px;overflow-x:auto}
+.term .c{color:var(--saf)}.term .ok{color:var(--grn)}
+.red{color:var(--gold);letter-spacing:-.05em;display:inline-block;animation:fl 4s infinite;user-select:none}
+@keyframes fl{0%,90%,100%{opacity:1}93%{opacity:.35}96%{opacity:.8}}
+.stamp{display:inline-block;color:var(--saf);border:3px solid var(--saf);padding:0 .22em;margin-left:.1em;transform:rotate(-3deg);font-style:italic;animation:st 3s infinite;box-shadow:0 0 28px rgba(255,153,51,.3)}
+@keyframes st{0%,88%,100%{opacity:1}92%{opacity:.4}}
+.caret{display:inline-block;width:8px;height:15px;background:var(--saf);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.coming{text-align:center;border-top:1px solid var(--line)}
+.coming h2{margin-inline:auto}
+.coming .lead{margin:0 auto 38px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:860px){.hero,.myth{grid-template-columns:1fr}.hero{padding-top:20px}.bowbox{max-width:420px;margin:0 auto}section{padding:80px 0}.status small{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.hero h1 span,.hero p,.cta{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas><div class="glow" id="glow"></div>
+
+<header class="wrap">
+  <nav>
+    <a class="logo" href="#top" aria-label="Gandiv Systems">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#FF9933" stroke-width="2.4" stroke-linecap="round"><path d="M12 3Q36 20 12 37"/><path d="M12 3V37" stroke="#E9B44C" stroke-width="1.4"/><path d="M4 20h28" stroke="#F3EEE4" stroke-width="1.6"/></svg>
+      GANDIV
+    </a>
+    <a class="btn" href="https://claude.ai/artifact/MYbuGqbcrgXN5zXm65KNyS">Request access</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1><span>Intelligence that</span><span>never misses its mark.</span></h1>
+      <p>A sovereign data and decision platform built for the BRICS nations. One fused picture of infrastructure, borders and economies, owned and operated by the nations it serves.</p>
+      <div class="cta"><a class="btn solid" href="https://claude.ai/artifact/MYbuGqbcrgXN5zXm65KNyS">Request early access</a><a class="btn" href="#legend">The Gandiva principle</a></div>
+    </div>
+    <div class="bowbox">
+      <svg viewBox="0 0 560 600" role="img" aria-label="Animated Gandiva bow drawing an arrow">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9933"/><stop offset=".5" stop-color="#E9B44C"/><stop offset="1" stop-color="#FF9933"/></linearGradient>
+        <linearGradient id="t" x1="0" x2="1"><stop offset="0" stop-color="#FF9933" stop-opacity="0"/><stop offset="1" stop-color="#FF9933"/></linearGradient></defs>
+        <circle cx="330" cy="300" r="210" fill="none" stroke="rgba(233,180,76,.12)" stroke-dasharray="2 10"/>
+        <path id="limb" d="M200 40Q460 300 200 560" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+        <path d="M200 40Q440 300 200 560" fill="none" stroke="#F3EEE4" stroke-opacity=".35" stroke-width="1.2" id="inner"/>
+        <path d="M168 20q24-6 32 20M168 580q24 6 32-20" fill="none" stroke="#E9B44C" stroke-width="3" stroke-linecap="round" id="curls" opacity="0"/>
+        <g id="gems" fill="#FF9933" opacity="0"><circle cx="330" cy="300" r="7"/><circle cx="305" cy="225" r="3.5"/><circle cx="305" cy="375" r="3.5"/><circle cx="255" cy="150" r="3"/><circle cx="255" cy="450" r="3"/></g>
+        <path id="str" d="M200 40Q200 300 200 560" fill="none" stroke="#F3EEE4" stroke-width="1.6"/>
+        <g id="arrow" opacity="0"><rect x="0" y="297" width="330" height="6" fill="url(#t)"/><path d="M0 300h230" stroke="#F3EEE4" stroke-width="2.6"/><path d="M230 300l-20-9v18z" fill="#F3EEE4" transform="translate(30 0)"/><path d="M0 300l-14-9M0 300l-14 9M14 300l-14-9M14 300l-14 9" stroke="#FF9933" stroke-width="2.4" transform="translate(4 0)"/></g>
+      </svg>
+      <div class="deva" lang="sa">गाण्डीव</div>
+    </div>
+  </div>
+
+  <div class="status" id="status">
+    <div class="wrap">
+      <span class="dot"></span>
+      <span class="flag" aria-hidden="true"><i></i><i></i><i></i></span>
+      <b>Active engagement: Government of India</b>
+      <small>Programme scope classified. Mobilisation in progress.</small>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2 class="reveal">One platform. Every layer of the nation.</h2>
+      <p class="lead reveal">Built for sovereign hosting from the first line of code, so data never leaves the country that owns it.</p>
+      <div class="grid">
+        <div class="card reveal"><h3>Fusion engine</h3><p>Merges satellite, sensor, administrative and open-source feeds into one live model.</p></div>
+        <div class="card reveal"><h3>Sovereign cloud</h3><p>Air-gapped and in-country deployment, with keys held by the government, not by us.</p></div>
+        <div class="card reveal"><h3>Decision theatre</h3><p>Simulate scenarios across ministries and see the consequences before committing.</p></div>
+        <div class="card reveal"><h3>Border and infrastructure</h3><p>Persistent awareness for frontiers, ports, grids and corridors at national scale.</p></div>
+      </div>
+      <div class="term reveal" id="term" aria-label="System preview"></div>
+    </div>
+  </section>
+
+  <section id="legend">
+    <div class="wrap myth">
+      <div>
+        <h2 class="reveal">The bow of Arjuna.</h2>
+        <p class="lead reveal">In the Mahabharata, Gandiva was shaped by Brahma and carried by Arjuna through the war at Kurukshetra. Its arrows were said to find their target every time, and its string was heard across the battlefield.</p>
+        <p class="quote reveal">We build on the same idea: aim with certainty, act with restraint, and never lose sight of the goal.</p>
+      </div>
+      <svg class="ring reveal" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+        <g class="rot" stroke="#E9B44C" stroke-opacity=".5">
+          <circle cx="200" cy="200" r="180" stroke-dasharray="3 9"/><circle cx="200" cy="200" r="150"/>
+          <path id="rays" d="M200 20V50M200 350V380M20 200H50M350 200H380M72 72l21 21M307 307l21 21M72 328l21-21M307 93l21-21"/>
+        </g>
+        <path d="M150 90Q300 200 150 310" stroke="#FF9933" stroke-width="7" stroke-linecap="round"/>
+        <path d="M150 90V310" stroke="#F3EEE4" stroke-width="1.5"/><path d="M110 200H320" stroke="#F3EEE4" stroke-width="2"/><path d="M320 200l-14-7v14z" fill="#F3EEE4"/>
+        <circle cx="200" cy="200" r="5" fill="#E9B44C"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="coming" id="access">
+    <div class="wrap">
+      <h2 class="reveal">Further modules are being <span class="stamp">built</span>.</h2>
+      <p class="lead reveal">Gandiv Systems is onboarding a limited group of partner governments and institutions. Register your interest and we will contact you when your window opens.</p>
+      <a class="btn solid reveal" href="https://claude.ai/artifact/MYbuGqbcrgXN5zXm65KNyS">Request early access</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Gandiv Systems. Sovereign intelligence for the BRICS nations.</span><span>धर्मो रक्षति रक्षितः</span></div></footer>
+
+<script>
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* network canvas */
+const cv=document.getElementById('net'),cx=cv.getContext('2d');let W,H,pts=[],mx=-999,my=-999;
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;pts=Array.from({length:Math.min(80,W/16|0)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}))}
+size();addEventListener('resize',size);
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;const g=document.getElementById('glow');g.style.left=mx+'px';g.style.top=my+'px'});
+function tick(){cx.clearRect(0,0,W,H);
+for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;cx.fillStyle='rgba(233,180,76,.7)';cx.fillRect(p.x,p.y,2,2)}
+for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){const m=Math.hypot((a.x+b.x)/2-mx,(a.y+b.y)/2-my)<160;cx.strokeStyle=m?'rgba(255,153,51,'+(1-d/130)*.9+')':'rgba(233,180,76,'+(1-d/130)*.22+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+if(!reduce)requestAnimationFrame(tick)}
+tick();
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.02});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});setTimeout(()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in')),4000);
+/* bow animation */
+const limb=document.getElementById('limb'),str=document.getElementById('str'),arrow=document.getElementById('arrow'),st=document.getElementById('status');
+['curls','gems'].forEach(id=>document.getElementById(id).style.transition='opacity 1s 1.6s');
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+function setStr(x){str.setAttribute('d','M200 40Q'+(2*x-200)+' 300 200 560')}
+function setArrow(x){arrow.setAttribute('transform','translate('+x+' 0)')}
+function draw(){limb.style.transition='stroke-dashoffset 1.8s cubic-bezier(.6,0,.2,1)';limb.style.strokeDashoffset=0;
+setTimeout(()=>{document.getElementById('curls').style.opacity=1;document.getElementById('gems').style.opacity=1},50)}
+function loop(){let t0=null;const D={pull:1600,hold:350,fly:650,rest:2600};
+function f(ts){if(t0===null)t0=ts;const t=ts-t0;
+if(t<D.pull){const k=ease(t/D.pull);const x=200-95*k;setStr(x);arrow.setAttribute('opacity',Math.min(1,t/300));setArrow(x-14)}
+else if(t<D.pull+D.hold){setStr(105);setArrow(91)}
+else if(t<D.pull+D.hold+D.fly){const k=(t-D.pull-D.hold)/D.fly;setStr(200+(-95)*Math.cos(k*20)*Math.exp(-k*5));setArrow(91+k*k*1100);if(k>0.05&&!st.dataset.f){st.dataset.f=1;setTimeout(()=>{st.classList.add('flash');setTimeout(()=>st.classList.remove('flash'),450)},250)}}
+else if(t<D.pull+D.hold+D.fly+D.rest){setStr(200);arrow.setAttribute('opacity',0);delete st.dataset.f}
+else{t0=ts}
+requestAnimationFrame(f)}
+requestAnimationFrame(f)}
+if(reduce){limb.style.strokeDashoffset=0;['curls','gems'].forEach(i=>document.getElementById(i).style.opacity=1)}else{setTimeout(draw,200);setTimeout(loop,2400)}
+/* terminal */
+const lines=['<span class="c">gandiv@sovereign</span> ~ $ connect --nation IN --mode sovereign','<span class="ok">✓</span> in-country node linked, keys held by client','<span class="ok">✓</span> 6 data domains fused into one live model','<span class="c">gandiv@sovereign</span> ~ $ load module kurukshetra --clearance L5','<span class="ok">✓</span> access pending. module in build, release window to be announced<span class="caret"></span>'];
+const term=document.getElementById('term');let started=false;
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!started){started=true;o.disconnect();let i=0;(function n(){if(i<lines.length){term.insertAdjacentHTML('beforeend',(i?'<br>':'')+lines[i++]);setTimeout(n,reduce?0:750)}})()}},{threshold:.5}).observe(term);
+if(reduce)term.innerHTML=lines.join('<br>');
+})();
+</script>
+</body>
+</html>
